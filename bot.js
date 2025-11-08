@@ -216,3 +216,7 @@ async function start() {
 }
 
 start().catch((err) => console.error("❌ Error starting bot:", err));
+
+// --- Keep Render happy (fake web server) ---
+import http from "http";
+http.createServer((_, res) => res.end("Bot is running")).listen(process.env.PORT || 3000);
